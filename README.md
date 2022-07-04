@@ -5,11 +5,11 @@ Convert a lot of files extensions into text
 
 Build image:
 ```bash
-$ docker build -t textractor stedotdev/textractor
+$ docker pull stedotdev/textractor
 ```
 Create an alias command
 ```bash
-$ alias textractor='docker run --rm -ti -v $(pwd)/local_file:/files textractor'
+$ alias textractor='docker run --rm -ti -v $(pwd)/local_file:/files stedotdev/textractor'
 ```
 
 Execute conversion
