@@ -22,3 +22,7 @@ jobs:
       run: docker build . --file Dockerfile --tag ${{secrets.DOCKER_USER}}/textractor:$(git describe --tags `git rev-list --tags --max-count=1`)
     - name: Docker push
       run: docker push ${{secrets.DOCKER_USER}}/textractor:$(git describe --tags `git rev-list --tags --max-count=1`)
+    - name: Docker create latest
+      run: docker tag ${{secrets.DOCKER_USER}}/textractor:$(git describe --tags `git rev-list --tags --max-count=1`) ${{secrets.DOCKER_USER}}/textractor:latest
+    - name: Push latest version
+      run: docker push ${{secrets.DOCKER_USER}}/textractor:latest
